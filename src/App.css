@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  
 }
 
 .App-link {
@@ -7,9 +7,19 @@
 }
 
 body{
-  background: #2C3E50;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #4CA1AF, #2C3E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* background: #2C3E50;  
+  background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50); 
+  background: linear-gradient(to right, #4CA1AF, #2C3E50);  */
+
+  background: whitesmoke;
+}
+
+.bg-white{
+  background: white;
+}
+
+.bg-blue{
+  background:rgb(0, 0, 141);
 }
 
 .fa {

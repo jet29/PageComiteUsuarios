@@ -19,30 +19,38 @@ class Nav extends Component {
   render() {
     return (
       <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-blue shadow fixed-top">
           <div class="container">
+            
             <a class="navbar-brand text-info font-weight-bold" href="/">Comité de Usuarios de Nueva Casarapa</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
+                
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="/">Inicio
-                        <span class="sr-only">(current)</span>
-                      </a>
+                <li class="nav-item">
+                  <a class="nav-link text-white font-weight-bold" href="/">Inicio</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle text-white font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Acerca de Nosotros
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/about-us/contact-us">Contáctenos</a>
+                    <a class="dropdown-item" href="/about-us/projects">Propuestas y Proyectos</a>
+                    <a class="dropdown-item" href="/about-us/mission">Misión</a>
+                    <a class="dropdown-item" href="/about-us/vision">Visión</a>
+                  </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Acerca de Nosotros</a>
+                  <a class="nav-link text-white font-weight-bold" href="/services">Biblioteca Virtual</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Servicios</a>
+                  <a class="nav-link text-white font-weight-bold" href="/contact-us">Iniciar Sesión</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Contáctenos</a>
-                </li>
+
               </ul>
             </div>
+
+
           </div>
         </nav>
 

@@ -28,8 +28,8 @@ class Home extends Component {
     return (
 
       <div className="Home">
-        <main role="main" class="container">
-          <div class="row">
+        <main role="main" className="container">
+          <div className="row">
             <NewsItem image={image1} text={news.news1}></NewsItem>
             <NewsItem image={image2} text={news.news2}></NewsItem>
             <NewsItem image={image3} text={news.news3}></NewsItem>
