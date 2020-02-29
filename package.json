@@ -1,6 +1,7 @@
 {
   "name": "comiteusuarios",
   "version": "0.1.0",
+  "homepage": "http://jetlands.net/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
