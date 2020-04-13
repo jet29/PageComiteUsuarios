@@ -10882,3 +10882,51 @@ a.text-dark:focus {
   }
 }
 
+body {
+  background-color: #e9f1f5;
+}
+
+/* Case Big Screen PC */
+
+@media only screen and (min-width: 900px) {
+  #layout-container {
+    max-width: 1300px;
+    margin: auto;
+  }
+
+  .div-abs-right {
+    position: absolute;
+    top: 1em;
+    right: 3em;
+  }
+
+  #layout-footer {
+    position: absolute;
+    bottom: 0;
+    min-width: 1300px;
+    height: 2.5rem;
+    /* Footer height */
+  }
+}
+
+/* Font used for Header */
+
+@font-face {
+  font-family: "Home";
+  src: url("/themes/comite/assets/fonts/Home.ttf") format("truetype");
+}
+
+#title-header {
+  font-family: Home;
+  font-size: 35px;
+  color: #20b6f1;
+}
+
+#layout-content {
+  min-height: 69vh;
+}
+
+.carousel-sm {
+  max-height: 15em;
+}
+

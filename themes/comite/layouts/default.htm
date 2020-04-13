@@ -15,20 +15,23 @@ description = "default layout"
     </head>
     <body>
 
-        <!-- Header -->
-        <header id="layout-header">
-            {% partial 'header' %}
-        </header>
+        <div id="layout-container">
+            <!-- Header -->
+            <header id="layout-header">
+                {% partial 'header' %}
+            </header>
 
-        <!-- Content -->
-        <section id="layout-content">
-            {% page %}
-        </section>
+            <!-- Content -->
+            <section id="layout-content">
+                {% page %}
+            </section>
 
-        <!-- Footer -->
-        <footer id="layout-footer">
-            {% partial 'footer' %}
-        </footer>
+            <!-- Footer -->
+            <footer id="layout-footer">
+                {% partial 'footer' %}
+            </footer>
+        </div>
+        
 
         <!-- Scripts -->
         <script src="{{ 'assets/dist/js/app.js'|theme }}"></script>

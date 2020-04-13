@@ -35,7 +35,6 @@
     "browser-sync": "^2.26.7",
     "browser-sync-webpack-plugin": "^2.0.1",
     "chai": "^4.2.0",
-    "jquery": "^3.4.1",
     "jsdom": "^15.1.1",
     "laravel-mix": "^5.0.4",
     "mocha": "^6.2.0",
@@ -50,6 +49,7 @@
   "author": "Jose Tirado",
   "dependencies": {
     "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
     "popper.js": "^1.16.1"
   }
 }
