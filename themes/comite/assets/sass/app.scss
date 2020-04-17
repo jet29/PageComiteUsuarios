@@ -1,4 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+
+@import "./icons-style.scss";
 
 
 body{
@@ -11,6 +14,7 @@ body{
    
 
     #layout-container{
+        background-color: white;
         max-width: 1300px;
         margin: auto;
     }
@@ -23,6 +27,7 @@ body{
     }
 
     #layout-footer {
+        background-color: white;
         position: absolute;
         bottom: 0;
         min-width: 1300px;

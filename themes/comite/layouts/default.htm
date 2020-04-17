@@ -22,9 +22,12 @@ description = "default layout"
             </header>
 
             <!-- Content -->
-            <section id="layout-content">
-                {% page %}
-            </section>
+            <div id="layout-content" class="container pt-5">
+                <div class="row">
+                    {% page %}
+                    {% partial 'sidebar' %}
+                </div>
+            </div>
 
             <!-- Footer -->
             <footer id="layout-footer">
