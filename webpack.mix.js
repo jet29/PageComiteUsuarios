@@ -13,8 +13,8 @@ let mix = require('laravel-mix');
 
 mix.setPublicPath('./themes/comite/assets/');
 
-mix.js('./themes/comite/assets/js/app.js', 'dist/js')
-    sass('./themes/comite/assets/sass/app.scss', 'dist/css').sourceMaps();
+mix.js('./themes/comite/assets/js/app.js', 'dist/js').
+    sass('./themes/comite/assets/sass/app.scss', 'dist/css');
 
 
 mix.browserSync({
