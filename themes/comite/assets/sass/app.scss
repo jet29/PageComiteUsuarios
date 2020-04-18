@@ -2,23 +2,19 @@
 @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
 
 @import "./icons-style.scss";
-
+@import "./variables.scss";
 
 body{
-    background-color: rgb(12, 44, 59);
+    background-color: $base-background;
 }
 
 /* Case Big Screen PC */
 @media only screen and (min-width: 900px) {
-
-   
-
     #layout-container{
-        background-color: white;
+        background-color: $base-white;
         max-width: 1300px;
         margin: auto;
     }
-
         
     .div-abs-right{
         position: absolute;
@@ -27,7 +23,7 @@ body{
     }
 
     #layout-footer {
-        background-color: white;
+        background-color: $base-white;
         position: absolute;
         bottom: 0;
         min-width: 1300px;
@@ -35,7 +31,6 @@ body{
     }
 
 }
-
 
 /* Font used for Header */
 @font-face {
@@ -46,7 +41,7 @@ body{
 #title-header{
     font-family: Home;
     font-size: 35px;
-    color: #20b6f1;
+    color: $base-header;
 }
 
 

@@ -11,28 +11,43 @@ categoryPage = "home"
 ==
 <div class="col-md-8">
 
-    {% component 'blogPost' %}
-    
-    
-    {% set posts = commentsPost.posts %}
 
-    <div class="col-xs-6" id="comments-content">
-        {% if(commentsPost.count) > 0 %}
-            <h3 class="text-right"><span id="comments-count">{{ commentsPost.count }}</span> comments</h3>
-        {% endif %}
-        {% if(user or commentsPost.settings.allow_guest) %}
-    
-            {% partial "commentsPost::form" %}
-    
-        {% endif %}
-        <div class="comments">
-            <ul>
-                {% partial "commentsPost::list" posts=posts %}
-            </ul>
+    <div class="row">
+        <div class="col-xs-12">
+
+            {% set post = blogPost.post %}
+
+            <div class="content">{{ post.content_html|raw }}</div>
+            
+            {% if post.featured_images.count %}
+                <div class="featured-images text-center">
+                    {% for image in post.featured_images %}
+                        <p>
+                            <img
+                                data-src="{{ image.filename }}"
+                                src="{{ image.path }}"
+                                alt="{{ image.description }}"
+                                style="max-width: 100%" />
+                        </p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            
+            <p class="info">
+                Posted
+                {% if post.categories.count %} in
+                    {% for category in post.categories %}
+                        <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                {% endif %}
+                on {{ post.published_at|date('M d, Y') }}
+            </p>
+
         </div>
     </div>
-
-
-
+    
+     <div class="row">
+         {% component 'commentsPost' %}
+     </div>
     
 </div>

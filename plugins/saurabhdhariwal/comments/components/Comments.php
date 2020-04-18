@@ -98,7 +98,7 @@ class Comments extends ComponentBase
 
         if (!Auth::check()) {
             $formValidation['email'] = 'required|email';
-            $formValidation['author'] = 'required|alpha|min:2|max:25';
+            $formValidation['author'] = 'required|min:2|max:25';
         }
 
         $validator = Validator::make(post(), $formValidation);
@@ -140,13 +140,19 @@ class Comments extends ComponentBase
             $model->author = post('author');
             $model->email = post('email');
         } else {
-            $model->author = null;
-            $model->email = null;
+            
+            if (Auth::check()) {
+                $model->author = Auth::getUser()->name;
+                $model->email = Auth::getUser()->email;
+            }
+
         }
 
         if (Auth::check()) {
             $model->user_id = Auth::getUser()->id;
         }
+
+
         $model->status = Settings::get('status', 1);
         if ($model->save() && $model->status == 1) {
             return ['content' => $this->renderPartial('@list.htm', ['posts' => [$model]])];

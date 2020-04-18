@@ -16933,14 +16933,14 @@ readers do not read off random characters that represent icons */
 }
 
 body {
-  background-color: #0c2c3b;
+  background-color: #0a2a3f;
 }
 
 /* Case Big Screen PC */
 
 @media only screen and (min-width: 900px) {
   #layout-container {
-    background-color: white;
+    background-color: #ffffff;
     max-width: 1300px;
     margin: auto;
   }
@@ -16952,7 +16952,7 @@ body {
   }
 
   #layout-footer {
-    background-color: white;
+    background-color: #ffffff;
     position: absolute;
     bottom: 0;
     min-width: 1300px;
