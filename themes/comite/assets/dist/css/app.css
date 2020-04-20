@@ -16953,11 +16953,8 @@ body {
 
   #layout-footer {
     background-color: #ffffff;
-    position: absolute;
     bottom: 0;
-    min-width: 1300px;
-    height: 2.5rem;
-    /* Footer height */
+    margin-top: 100px;
   }
 }
 
@@ -16980,5 +16977,21 @@ body {
 
 .carousel-sm {
   max-height: 15em;
+}
+
+.featured-image {
+  width: 22em;
+}
+
+.date-text-post {
+  padding-top: 6px;
+  background-color: #20b6f1;
+  border-radius: 3px;
+  max-width: 66px;
+  max-height: 92px;
+}
+
+.sign-in-input {
+  max-width: 400px;
 }
 

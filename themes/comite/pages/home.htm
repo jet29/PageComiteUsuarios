@@ -1,41 +1,92 @@
 title = "home"
-url = "/"
+url = "/:page?"
 layout = "default"
 description = "main page"
 is_hidden = 0
 
 [blogPosts]
 pageNumber = "{{ :page }}"
-postsPerPage = 10
-noPostsMessage = "No posts found"
+postsPerPage = 4
+noPostsMessage = "No hay posts disponibles"
 sortOrder = "published_at desc"
 categoryPage = "home"
 postPage = "blog-post"
+
 ==
 <div class="col-md-8">
 
     {% set posts = blogPosts.posts %}
 
-    <ul class="post-list">
-        {% for post in posts %}
-            <li>
-                <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+    {% for post in posts %}
+
+        <div class="row">
+
+            <div class="col-md-2 date-text-post text-center">
+
+                <p class="text-white h3 m-0">{{ post.published_at|date('d') }}</p>
+                <!-- Translate Month -->
+                <p class="text-white h6 m-0">{{ post.published_at | localizeddate('none', 'none', 'es_ES', 'America/Caracas', 'MMM') }}</p>
+                <p class="text-white h6 m-0">{{ post.published_at|date('Y') }}</p>
+
+            </div>
+
+            <div class="col-md-10">
+
+                <div class="row">
+
+                </div>
+                    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+
+                <div class="row">
+                    <div class="col-md-7">
+                        {% if post.featured_images.count %}
+                            <div id="post-list-featured-images-top">
+                            {% for image in post.featured_images|slice(0, 1) %}
+                                <a href="{{ image.path }}">
+                                    <img class="featured-image" data-src="{{ image.filename }}" src="{{ image.path }}" alt="{{ image.description != null ? image.description : image.filename }}" title="{{ image.title != null ? image.title : post.title }}">
+                                </a>
+                            {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-5">
+                        <p class="excerpt">{{ post.summary|raw }}</p>
+                    </div>
+                </div>
     
-                <p class="info">
-                    Posted
-                    {% if post.categories.count %} in {% endif %}
-                    {% for category in post.categories %}
-                        <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
-                    {% endfor %}
-                    on {{ post.published_at|date('M d, Y') }}
-                </p>
+                <div class="row">
+                    <!-- <div class="col-md-3">
+                        <p class="d-inline">Comentarios: </p>
+                        <p class="d-inline">{{ commentsPost.count }}</p>
+                    </div> -->
+                    <div class="col-md-9">
+                        <p class="info">
+                            {% if post.categories.count %} 
+                                Categorias: 
+                            {% endif %}
+                            {% for category in post.categories %}
+                                <a href="category/{{ category.slug }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                            {% endfor %}
+                        </p>
+                    </div>
+                    
+                    
+                </div>
+                    
+                    
+            </div>
+            
+
+        </div>
+
     
-                <p class="excerpt">{{ post.summary|raw }}</p>
-            </li>
-        {% else %}
-            <li class="no-data">{{ blogPosts.noPostsMessage }}</li>
-        {% endfor %}
-    </ul>
+    {% else %}
+
+        <div class="row">
+            <p class="no-data">{{ blogPosts.noPostsMessage }}</p>
+        </div>
+        
+    {% endfor %}
     
     {% if posts.lastPage > 1 %}
         <ul class="pagination">

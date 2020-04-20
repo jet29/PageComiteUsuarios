@@ -30,6 +30,16 @@ categoryPage = "category-page"
     </div>
     
     <!-- Category List -->
-    {% component 'blogCategories' %}
+    {% if blogCategories.categories|length > 0 %}
+        <ul class="list-group">
+            {% partial blogCategories ~ "::items"
+                categories = blogCategories.categories
+                currentCategorySlug = blogCategories.currentCategorySlug
+            %}
+        </ul>
+    {% else %}
+        <p>No categories were found.</p>
+    {% endif %}
+
 
 </div>

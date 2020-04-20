@@ -24,10 +24,8 @@ body{
 
     #layout-footer {
         background-color: $base-white;
-        position: absolute;
         bottom: 0;
-        min-width: 1300px;
-        height: 2.5rem;            /* Footer height */
+        margin-top: 100px;
     }
 
 }
@@ -51,5 +49,21 @@ body{
 
 .carousel-sm{
     max-height: 15em;
+}
+
+.featured-image{
+    width: 22em;
+}
+
+.date-text-post{
+    padding-top: 6px;
+    background-color: $base-header;
+    border-radius: 3px;
+    max-width: 66px;
+    max-height: 92px;
+}
+
+.sign-in-input{
+    max-width: 400px;
 }
 
