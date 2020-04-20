@@ -2,7 +2,8 @@
 <li>
     <div class="comment" id="comment-{{post.id}}">
         <div class="comment-avatar">
-            {{post.avatar|raw}}
+            <!-- {{post.avatar|raw}} -->
+            <img src="{{ 'assets/images/no-avatar.png'|theme }}" alt="">
         </div>
         <div class="comment-content">
             <div class="comment-header">

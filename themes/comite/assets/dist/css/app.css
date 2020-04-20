@@ -16932,6 +16932,46 @@ readers do not read off random characters that represent icons */
   color: black;
 }
 
+@font-face {
+  font-family: "Home";
+  src: url("/themes/comite/assets/fonts/Home.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Quintana";
+  src: url("/themes/comite/assets/fonts/Quintana.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Sansation";
+  src: url("/themes/comite/assets/fonts/Sansation_Bold_Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Sansation";
+  src: url("/themes/comite/assets/fonts/Sansation_Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Sansation";
+  src: url("/themes/comite/assets/fonts/Sansation_Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Sansation";
+  src: url("/themes/comite/assets/fonts/Sansation_Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Sansation";
+  src: url("/themes/comite/assets/fonts/Sansation_Light_Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Sansation";
+  src: url("/themes/comite/assets/fonts/Sansation_Regular.ttf") format("truetype");
+}
+
 body {
   background-color: #0a2a3f;
 }
@@ -16958,16 +16998,12 @@ body {
   }
 }
 
-/* Font used for Header */
-
-@font-face {
-  font-family: "Home";
-  src: url("/themes/comite/assets/fonts/Home.ttf") format("truetype");
-}
-
 #title-header {
-  font-family: Home;
-  font-size: 35px;
+  padding-left: 50px;
+  padding-top: 8px;
+  font-weight: bold;
+  font-family: Sansation;
+  font-size: 25px;
   color: #20b6f1;
 }
 
@@ -16993,5 +17029,13 @@ body {
 
 .sign-in-input {
   max-width: 400px;
+}
+
+.text-base-blue {
+  color: #20b6f1;
+}
+
+.img-fit-text p > img {
+  max-width: 660px;
 }
 

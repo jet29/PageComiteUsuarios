@@ -13,13 +13,24 @@ categoryPage = "home"
 
 
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-md-11 text-justify img-fit-text">
 
             {% set post = blogPost.post %}
 
-            <div class="content">{{ post.content_html|raw }}</div>
-            
-            {% if post.featured_images.count %}
+
+            <div class="row mb-2">
+                <div class="col-md-12 text-center">
+                    <p class="h4 text-base-blue font-weight-bold">{{ post.title }}</p>
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-md-12">
+                    <p >{{ post.content_html|raw }}</p>
+                </div>
+            </div>
+
+            <!-- {% if post.featured_images.count %}
                 <div class="featured-images text-center">
                     {% for image in post.featured_images %}
                         <p>
@@ -31,7 +42,7 @@ categoryPage = "home"
                         </p>
                     {% endfor %}
                 </div>
-            {% endif %}
+            {% endif %} -->
             
             <p class="info">
                 Posted
@@ -45,9 +56,102 @@ categoryPage = "home"
 
         </div>
     </div>
+
+    <!-- NUMBER OF COMMENTS -->
+    {% set posts = commentsPost.posts %}
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            {% if(commentsPost.count) > 0 %}
+                <p class="h3"><span id="comments-count">{{ commentsPost.count }}</span> comentarios</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- COMMENT FORM -->
+
+    {% if(user or commentsPost.settings.allow_guest) %}
+
+        <div id="wrap-comment-form">
+            <div id="comment-form">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="comment-reply-title h2">Agrega un comentario
+                            <small>
+                                <a onclick="Comment.cancel()" style="display: none;" rel="nofollow" id="cancel-comment-reply-link" title="Cancel reply">×</a>
+                            </small>
+                        </p>
+                    </div>
+                </div>
+
+                <form>   
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="comment_flash_message"></div>
+                        </div>
+                    </div>
+
+                    {% if(user == false) %}
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <!-- Name Field -->
+                                <input placeholder="Name" class="form-control" name="author" type="text">
+                            </div>
+                        </div>
+                            
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <!-- Email Field -->
+                                <input placeholder="Email" class="form-control" name="email" type="text">
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <!-- Content Field -->
+                            <textarea placeholder="Deja un comentario..." class="form-control" id="comment-text" name="content" cols="50" rows="10"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                                <input name="post_id" type="hidden" value="{{__SELF__.post_id}}">
+                        </div>
+                    </div>
+
+                    {% if (__SELF__.settings.recaptcha_enabled) %}  
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                    <div class="g-recaptcha" data-sitekey="{{ __SELF__.settings.site_key }}"></div>
+                                    <br>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="row">
+                        <div class="col-md-12 form-group text-center">
+                            <!-- Submit Field -->
+                            <button type="submit" class="btn btn-primary" onclick="Comment.saveButton(event)">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    {% endif %}
+
+    <!-- SHOWING THE COMMENTS -->
     
-     <div class="row">
-         {% component 'commentsPost' %}
-     </div>
+    <div class="row">
+        <div class="col-md-12" id="comments-content">
+            <div class="comments">
+                <ul>
+                    {% partial "commentsPost::list" posts=posts %}
+                </ul>
+            </div>
+        </div>
+    </div>
     
 </div>
