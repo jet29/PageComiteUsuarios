@@ -8,6 +8,14 @@ slug = "{{ :slug }}"
 categoryPage = "home"
 
 [commentsPost]
+
+[shares]
+facebook = 1
+twitter = 1
+googleplus = 1
+tumblr = 0
+linkedin = 0
+reddit = 0
 ==
 <div class="col-md-8">
 
@@ -44,18 +52,74 @@ categoryPage = "home"
                 </div>
             {% endif %} -->
             
-            <p class="info">
-                Posted
-                {% if post.categories.count %} in
-                    {% for category in post.categories %}
-                        <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
-                    {% endfor %}
-                {% endif %}
-                on {{ post.published_at|date('M d, Y') }}
-            </p>
-
+            <div class="row">
+                <div class="col-md-8">
+                    <p class="info">
+                        Publicado
+                        {% if post.categories.count %} en
+                            {% for category in post.categories %}
+                                <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        el {{ post.published_at|date('M d, Y') }}
+                    </p>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="oc-share">
+                        <div class="btn-group">
+                          <p class="info mt-2">Compartir:</p>
+                    
+                          	{% if facebook %}
+                            <a class="btn btn-default btn-xs" target="_blank" title="On Facebook" href="https://www.facebook.com/sharer.php?u={{url}}">
+                                <i class="fab fa-facebook-f rss"></i>
+                            </a>
+                            {% endif %}
+                    
+                            {% if twitter %}
+                            <a class="btn btn-default btn-xs" target="_blank" title="On Twitter" href="https://twitter.com/share?url={{url}}&text={{ this.page.title }}">
+                                <i class="fab fa-twitter rss"></i>
+                            </a>
+                            {% endif %}
+                    
+                            {% if googleplus %}
+                            <a class="btn btn-default btn-xs" target="_blank" title="On Google Plus" href="https://plus.google.com/share?url={{url}}">
+                                <i class="icon-google-plus"></i>
+                            </a>
+                            {% endif %}
+                    
+                            {% if tumblr %}
+                            <a class="btn btn-default btn-xs" target="_blank" title="On Tumblr" href="https://www.tumblr.com/share/link?url={{url}}&title={{ this.page.title }}">
+                                <i class="icon-tumblr"></i>
+                            </a>
+                            {% endif %}
+                    
+                            {% if linkedin %}
+                            <a class="btn btn-default btn-xs" target="_blank" title="On LinkedIn" href="https://www.linkedin.com/shareArticle?url={{url}}&title={{ this.page.title }}">
+                                <i class="icon-linkedin"></i>
+                            </a>
+                            {% endif %}
+                    
+                            {% if reddit %}
+                            <a class="btn btn-default btn-xs" target="_blank" title="On Reddit" href="https://reddit.com/submit?url={{url}}&title={{ this.page.title }}">
+                                <i class="icon-reddit"></i>
+                            </a>
+                            {% endif %}
+                    
+                            {% if digg %}
+                            <a class="btn btn-default btn-xs" target="_blank" title="On Digg" href="http://digg.com/submit?url={{url}}&title={{ this.page.title }}">
+                                <i class="icon-digg"></i>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
         </div>
     </div>
+
+    <!-- COMMENTS THINGS -->
 
     <!-- NUMBER OF COMMENTS -->
     {% set posts = commentsPost.posts %}

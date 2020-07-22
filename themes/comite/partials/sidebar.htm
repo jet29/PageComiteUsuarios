@@ -3,7 +3,7 @@ slug = "{{ :slug }}"
 displayEmpty = 1
 categoryPage = "category-page"
 ==
-<div class="col-md-4">
+<div class="col-md-3">
     <!-- Search Bar -->
     <div class="row">
         <div class="input-group md-form form-sm form-2 pl-0">
@@ -19,7 +19,7 @@ categoryPage = "category-page"
 
     <!-- Social Networks -->
     <div class="row mt-5">
-        <p class="h3">Síguenos en:</p>
+        <p class="h4">Síguenos en:</p>
     </div>
     <div class="row">
         <div class="p-3">
@@ -28,6 +28,25 @@ categoryPage = "category-page"
             <i class="fab fa-instagram rss"></i>
         </div>
     </div>
+    <br>
+
+    <!-- Suscription -->
+   
+    <form>
+        <div class="form-group row">
+            <label class="h4" for="exampleInputEmail1">Suscribirse para recibir noticias</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingresa tu Correo Electrónico">
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary">Suscribirse</button>
+            </div>
+            <div class="col-md-4"></div>
+            
+        </div>
+    </form>
+    <br>
     
     <!-- Category List -->
     {% if blogCategories.categories|length > 0 %}
