@@ -1,0 +1,48 @@
+title = "search result"
+url = "/search-result/:search/:page"
+layout = "default"
+description = "search result"
+is_hidden = 0
+
+[searchResult]
+searchTerm = "{{ :search }}"
+pageNumber = "{{ :page }}"
+hightlight = 0
+postsPerPage = 5
+noPostsMessage = "No se encontraron posts"
+sortOrder = "published_at desc"
+categoryPage = "category-page"
+postPage = "blog-post"
+==
+<div class="col-md-8">
+    {% set posts = searchResult.posts %}
+
+    <h2>{{ 'Search Results for:'|_ }} {{ searchResult.searchTerm }}</h2>
+    
+    <ul class="post-list">
+        {% for post in posts %}
+        <li>
+            <h3><a href="{{ post.url }}">{{ post.title|raw }}</a></h3>
+    
+            <p class="info">
+                {{ 'Posted'|_ }}
+                {% if post.categories.count %} {{ 'in'|_ }} {% endif %}
+                {% for category in post.categories %}
+                <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+                {{ 'on'|_ }} {{ post.published_at|date('M d, Y') }}
+            </p>
+    
+            {% if post.excerpt %}
+            <p class="excerpt">{{ post.excerpt|raw }}</p>
+            {% else %}
+            <div class="content">{{ post.content_html|raw }}</div>
+            {% endif %}
+        </li>
+        {% else %}
+        <li class="no-data">{{ noPostsMessage }}</li>
+        {% endfor %}
+    </ul>
+    
+    {% partial searchResult~"::pagination" posts=posts %}
+</div>
