@@ -9,7 +9,11 @@ categoryFilter = 0
 ==
 <div class="col-md-3">
     <!-- Search Bar -->
-    
+    <div class="row ">
+        <div class="col-md-12 text-center">
+            <p class="h4 text-base-blue font-weight-bold">Buscar posts</p>
+        </div>
+    </div>
     <div class="row">
         <form class="form-inline" method="GET" action="{{ searchForm.resultPage|page }}">
             <input type="text" name="search" class="form-control">
@@ -28,49 +32,34 @@ categoryFilter = 0
 
 
     <!-- Social Networks -->
-    <div class="row mt-5">
-        <p class="h4 text-base-blue font-weight-bold">Síguenos en:</p>
-    </div>
-    <div class="row">
-        <div class="p-3">
-            <a href="https:://facebook.com" class="icon-block">
-                <i class="fab fa-facebook-f rss"></i>
-            </a>
-
-            <a href="https:://twitter.com" class="icon-block">
-                <i class="fab fa-twitter rss"></i>
-            </a>
-
-            <a href="https:://instagram.com" class="icon-block">
-                <i class="fab fa-instagram rss"></i>
-            </a>
-            
+    <div class="row mt-3">
+        <div class="col-md-12 text-center">
+            <p class="h4 text-base-blue font-weight-bold">Síguenos en</p>
         </div>
     </div>
-    <br>
-
-    <!-- Suscription -->
-   
     <div class="row">
-        <form>
-            <div class="form-group row">
-                <label class="h4 text-base-blue font-weight-bold" for="exampleInputEmail1">Suscribirse para recibir noticias</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingresa tu Correo Electrónico">
+        <div class="col-md-12 text-center">
+            <div class="p-3">
+                <a href="https:://facebook.com" class="icon-block">
+                    <i class="fab fa-facebook-f rss"></i>
+                </a>
+    
+                <a href="https:://twitter.com" class="icon-block">
+                    <i class="fab fa-twitter rss"></i>
+                </a>
+    
+                <a href="https:://instagram.com" class="icon-block">
+                    <i class="fab fa-instagram rss"></i>
+                </a>
             </div>
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4 p-0">
-                    <button type="submit" class="btn btn-primary">Suscribirse</button>
-                </div>
-                <div class="col-md-4"></div>
-                
-            </div>
-        </form>
+        </div>
     </div>
 
     <!-- Category List -->
-    <div class="row mt-5">
-        <p class="h4 text-base-blue font-weight-bold">Filtrar por categoria</p>
+    <div class="row ">
+        <div class="col-md-12 text-center">
+            <p class="h4 text-base-blue font-weight-bold">Categorías</p>
+        </div>
     </div>
     <div class="row list-group">
         {% if blogCategories.categories|length > 0 %}
@@ -82,6 +71,27 @@ categoryFilter = 0
             <p>No hay categorias disponibles</p>
         {% endif %}
     </div>
+
+    <!-- Suscription -->
+   
+    <form>
+        <div class="form-group row mt-3">
+            <div class="col-md-12 text-center">
+                <label class="h4 text-base-blue font-weight-bold" for="exampleInputEmail1">Suscripción</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingresa tu Correo Electrónico">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 p-0">
+                <button type="submit" class="btn btn-primary">Suscribirse</button>
+            </div>
+            <div class="col-md-4"></div>
+            
+        </div>
+    </form>
+
+    
 
 
 
