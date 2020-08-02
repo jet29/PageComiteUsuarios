@@ -16973,7 +16973,7 @@ readers do not read off random characters that represent icons */
 }
 
 body {
-  background-color: #0a2a3f;
+  background-color: #ffffff;
 }
 
 /* Case Big Screen PC */
@@ -17003,7 +17003,7 @@ body {
   padding-top: 8px;
   font-weight: bold;
   font-family: Sansation;
-  font-size: 20px;
+  font-size: 23px;
   color: #20b6f1;
 }
 
@@ -17037,5 +17037,10 @@ body {
 
 .img-fit-text p > img {
   max-width: 660px;
+}
+
+.button-blue {
+  background-color: #20b6f1;
+  color: white;
 }
 

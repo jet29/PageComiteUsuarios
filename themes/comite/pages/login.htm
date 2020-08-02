@@ -9,12 +9,15 @@ paramCode = "code"
 forceSecure = 0
 requirePassword = 0
 ==
-<div class="col-md-8">
+
+<div class="col-md-1"></div>
+<div class="col-md-7">
     
     <div class="row">
 
         <div class="col-md-12">
-            <h3>Iniciar Sesión</h3>
+            <p class="h3 text-base-blue font-weight-bold">Inicio de sesión</p>
+
             {{ form_ajax('onSignin') }}
 
                 <div class="form-group sign-in-input">
@@ -45,7 +48,7 @@ requirePassword = 0
                 </div>
                 {% endif %}
 
-                <button type="submit" class="btn btn-success">Iniciar Sesión</button>
+                <button type="submit" class="btn btn button-blue">Iniciar Sesión</button>
 
             {{ form_close() }}
         </div>

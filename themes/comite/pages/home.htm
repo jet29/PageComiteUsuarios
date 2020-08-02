@@ -13,7 +13,7 @@ categoryPage = "home"
 postPage = "blog-post"
 
 ==
-<div class="col-md-8">
+<div class="col-12 col-xl-8">
 
     {% set posts = blogPosts.posts %}
 
@@ -21,7 +21,7 @@ postPage = "blog-post"
 
         <div class="row">
 
-            <div class="col-md-2 date-text-post text-center">
+            <div class="col-xl-2 col-12 date-text-post text-center">
 
                 <p class="text-white h3 m-0">{{ post.published_at|date('d') }}</p>
                 <!-- Translate Month -->
@@ -30,16 +30,16 @@ postPage = "blog-post"
 
             </div>
 
-            <div class="col-md-10">
+            <div class="col-xl-10 col-12">
 
                 <div class="row mb-2">
-                    <div class="col-md-12">
+                    <div class="col-xl-12 col-12">
                         <a class="h4 text-base-blue font-weight-bold" href="{{ post.url }}">{{ post.title }}</a>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-xl-7 col-12">
                         {% if post.featured_images.count %}
                             <div id="post-list-featured-images-top">
                                 {% for image in post.featured_images|slice(0, 1) %}
@@ -56,17 +56,17 @@ postPage = "blog-post"
                             </div>
                         {% endif %}
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-xl-5 col-12">
                         <p class="excerpt">{{ post.summary|raw }}</p>
                     </div>
                 </div>
     
                 <div class="row">
-                    <!-- <div class="col-md-3">
+                    <!-- <div class="col-3">
                         <p class="d-inline">Comentarios: </p>
                         <p class="d-inline">{{ commentsPost.count }}</p>
                     </div> -->
-                    <div class="col-md-9">
+                    <div class="col-9">
                         <p class="info">
                             {% if post.categories.count %} 
                                 Categorias: 
@@ -89,7 +89,7 @@ postPage = "blog-post"
     {% endfor %}
 
     <div class="row ">
-        <div class="col-md-12 text-center">
+        <div class="col-12 text-center">
             {% if posts.lastPage > 1 %}
                 <ul class="pagination justify-content-center">
                     {% if posts.currentPage > 1 %}

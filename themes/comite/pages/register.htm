@@ -9,13 +9,15 @@ paramCode = "code"
 forceSecure = 0
 requirePassword = 0
 ==
-<div class="col-md-8">
+
+<div class="col-md-1"></div>
+<div class="col-md-7">
 
     <div class="row">
 
         <div class="col-md-12">
             {% if canRegister %}
-                <h3>Registro</h3>
+                <p class="h3 text-base-blue font-weight-bold">Registro</p>
 
                 {{ form_ajax('onRegister') }}
 
@@ -61,7 +63,7 @@ requirePassword = 0
                             placeholder="Ingresa una contraseña" />
                     </div>
 
-                    <button type="submit" class="btn btn-success">Registrarse</button>
+                    <button type="submit" class="btn btn button-blue">Registrarse</button>
 
                 {{ form_close() }}
             {% else %}
