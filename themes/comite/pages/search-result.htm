@@ -8,7 +8,7 @@ is_hidden = 0
 searchTerm = "{{ :search }}"
 pageNumber = "{{ :page }}"
 hightlight = 0
-postsPerPage = 5
+postsPerPage = 4
 noPostsMessage = "No se encontraron posts"
 sortOrder = "published_at desc"
 includeCategories[] = 1
@@ -18,6 +18,7 @@ categoryPage = "category-page"
 postPage = "blog-post"
 ==
 <div class="col-md-8">
+    
     {% set posts = searchResult.posts %}
 
     <p class="">{{ 'Filtrar resultados por:'|_ }} {{ searchResult.searchTerm }}<p>
@@ -99,7 +100,7 @@ postPage = "blog-post"
                 <ul class="pagination justify-content-center">
                     {% if posts.currentPage > 1 %}
                         <li class="page-item">
-                            <a class="page-link" href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a>
+                            <a class="page-link" href="{{ this.page.baseFileName|page({ (searchResult.pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a>
                         </li>
                     {% endif %}
             
@@ -110,12 +111,12 @@ postPage = "blog-post"
                         {% else %}
                             class="page-item"
                         {% endif %}
-                        ><a class="page-link" href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): page }) }}">{{ page }}</a>
+                        ><a class="page-link" href="{{ this.page.baseFileName|page({ (searchResult.pageParam): page }) }}">{{ page }}</a>
                         </li>
                     {% endfor %}
             
                     {% if posts.lastPage > posts.currentPage %}
-                        <li class="page-item"><a class="page-link" href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
+                        <li class="page-item"><a class="page-link" href="{{ this.page.baseFileName|page({ (searchResult.pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
                     {% endif %}
                 </ul>
             {% endif %}
