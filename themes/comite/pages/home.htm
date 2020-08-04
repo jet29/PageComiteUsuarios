@@ -13,7 +13,7 @@ categoryPage = "home"
 postPage = "blog-post"
 
 ==
-<div class="col-12 col-xl-8">
+<div class="col-12 col-md-8 col-xl-8">
 
     {% set posts = blogPosts.posts %}
 
@@ -21,7 +21,7 @@ postPage = "blog-post"
 
         <div class="row">
 
-            <div class="col-xl-2 col-12 date-text-post text-center">
+            <div class="col-xl-2 col-md-2 col-12 date-text-post text-center">
 
                 <p class="text-white h3 m-0">{{ post.published_at|date('d') }}</p>
                 <!-- Translate Month -->
@@ -30,7 +30,7 @@ postPage = "blog-post"
 
             </div>
 
-            <div class="col-xl-10 col-12">
+            <div class="col-xl-10 col-md-10 col-12">
 
                 <div class="row mb-2">
                     <div class="col-xl-12 col-12">
@@ -39,7 +39,7 @@ postPage = "blog-post"
                 </div>
 
                 <div class="row">
-                    <div class="col-xl-7 col-12">
+                    <div class="col-xl-7 col-md-7 col-12">
                         {% if post.featured_images.count %}
                             <div id="post-list-featured-images-top">
                                 {% for image in post.featured_images|slice(0, 1) %}
@@ -57,7 +57,7 @@ postPage = "blog-post"
                         {% endif %}
                     </div>
                     <div class="col-xl-5 col-12">
-                        <p class="excerpt">{{ post.summary|raw }}</p>
+                        <p class="excerpt justify-content-center">{{ post.summary|raw }}</p>
                     </div>
                 </div>
     
@@ -89,7 +89,7 @@ postPage = "blog-post"
     {% endfor %}
 
     <div class="row ">
-        <div class="col-12 text-center">
+        <div class="col-12 col-xl-12 text-center">
             {% if posts.lastPage > 1 %}
                 <ul class="pagination justify-content-center">
                     {% if posts.currentPage > 1 %}

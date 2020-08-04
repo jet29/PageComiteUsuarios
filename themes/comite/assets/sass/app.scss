@@ -34,11 +34,11 @@ body{
 
 
 #title-header{
-    padding-left: 50px;
-    padding-top: 8px;
+    padding-left: 0px;
+    padding-top: 12px;
     font-weight: bold;
     font-family: Sansation;
-    font-size: 23px;
+    font-size: 20px;
     color: $base-header;
 }
 
@@ -79,3 +79,9 @@ body{
     background-color: $base-header;
     color: white;
 }
+
+/* Solid border */
+hr.solid {
+    border-top: 3px solid #bbb;
+  }
+  
